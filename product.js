@@ -14,6 +14,14 @@
                  this.products = gems;
                  });
   */
+  
+  app.directive('productTitle', function(){
+    return{
+      restrict: 'E',
+      templateUrl:'./views/product-title.html'
+    };
+  })
+  
   app.controller('TabController', function(){
                  this.tab = 1;
                  
