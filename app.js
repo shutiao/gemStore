@@ -10,13 +10,29 @@ var express = require('express'),
 app.use(express.static(__dirname));
 
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '/views/', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/products.json', function(req, res){
+	res.send(gems);
+})
+/*
 app.get('*', function(req, res){
 	res.status(404).send('Page Not Found')
 });
+*/
 
 app.listen(8080);
 console.log('Express server started on port 8080');
 
+  var gems = [
+              {
+              name: 'Azurite',
+              price: 110.50,
+              images: [
+                       "images/gem-02.gif",
+                       "images/gem-05.gif",
+                       "images/gem-09.gif"
+                       ]
+              }
+              ];
