@@ -7,13 +7,8 @@
                  $http.get('/products.json').success(function(data){
                    store.products = data;
                  });
-                 //this.products = gems;
                  }]);
-  /*
-  app.controller('StoreController', function(){
-                 this.products = gems;
-                 });
-  */
+
   
   app.directive('productTitle', function(){
     return{
@@ -22,6 +17,14 @@
     };
   })
   
+  app.directive('productGallery', function(){
+    return{
+      restrict: 'E',
+      templateUrl:'./views/product-gallery.html'
+    };
+  })
+  
+  /*
   app.controller('TabController', function(){
                  this.tab = 1;
                  
@@ -33,13 +36,16 @@
                  return this.tab === tabName;
                  };
                  });
-  
+ */ 
   app.controller('GalleryController', function(){
-                 this.current = 0;
+                 this.current = 1;
                  this.setCurrent = function(newGallery){
-                 this.current = newGallery || 0;
+                   this.current = newGallery || 0;
                  };
                  });
+
+})();
+
   /*
   var gems = [
               {
@@ -124,4 +130,4 @@
               }
               ];
               */
-  })();
+
