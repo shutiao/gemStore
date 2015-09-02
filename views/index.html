@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
   <head>
-    <link rel="stylesheet" type="text/css" href="../library/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../library/codeschool.bootstrap.min.css" />
+    <!--link rel="stylesheet" href="http://dhg7upb7j7jqa.cloudfront.net/shaping_up_with_angular_js/assets/demo/bootstrap.min.css"-->
     <script type="text/javascript" src="../library/angular.min.js"></script>
     <script type="text/javascript" src="../product.js"></script>
   </head>
-  <body ng-controller="StoreController as store">
+  <body>
+    <head>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">- an Angular store -</h2>
+    </head>
     <!--  Products Container  -->
-    <div class="list-group">
+    <ul class="list-group" ng-controller="StoreController as store"
       <!--  Product Container  -->
-      <div class="list-group-item" ng-repeat="product in store.products">
-       <product-title></product-title>
-      <!-- Image Gallery  -->
-      <div class='gallery' ng-show="product.images.length" ng-controller="GalleryController as gallery">
-        <img ng-src="{{product.images[gallery.current]}}" />
-        <ul class="list-inline thumbs">
-          <li class="thumbnail" ng-repeat="image in product.images">
-            <img ng-src="{{image}}" />
-          </li>
-        </ul>
-      </div>
-      </div>
-    </div>
+      <li class="list-group-item" ng-repeat="product in store.products">
+        <product-title></product-title>
+        <!-- Image Gallery  -->
+        <product-gallery></product-gallery>
+        <!-- Product Detail -->
+        <product-detail></product-detail>
+      </li>
+     </ul>
   </body>
 </html>
 
